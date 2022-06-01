@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace Summer2022_Car_Garage_Program
 {
-    public class Car
+    public class Car : Vehicle
     {
         // object's characteristics - properties
         // accessModifier varType varName - syntax
-        public string OwnerName;
         public string Make;
         public string Model;
-        public double Cost;
         public int MPG;
-        public double FuelLevel;
-        public int TopSpeed;
-        public bool IsElectric;
+        public double FuelLevel; // gallons of fuel remaining
 
         // class's constructor - CONSTRUCTS an instance of our class.
         // we use a constructor to make an object
@@ -25,50 +21,67 @@ namespace Summer2022_Car_Garage_Program
         // empty constructor
         public Car()
         {
-            OwnerName = "DefaultOwner";
-            Make = "DefaultMake";
-            Model = "DefaultModel";
-            Cost = -1;
-            MPG = -1;
-            FuelLevel = -1;
-            TopSpeed = -1;
-            IsElectric = true;
-        }
-        // constructor with many parameters
-        public Car(string ownerName)
-        {
-            OwnerName = ownerName;
-            Make = "DefaultMake";
-            Model = "DefaultModel";
-            Cost = -1;
-            MPG = -1;
-            FuelLevel = -1;
-            TopSpeed = -1;
-            IsElectric = true;
+            Make = "Chrysler";
+            Model = "PT Cruiser";
+            MPG = 19;
+            FuelLevel = 100;
+            Speed = 0;
+            TopSpeed = 80;
         }
 
-        public Car(string ownerName, string make)
+        public Car(string make, string model, int mpg, int fl, int speed, int topSpeed)
         {
-            OwnerName = ownerName;
-            Make = make;
-            Model = "DefaultModel";
-            Cost = -1;
-            MPG = -1;
-            FuelLevel = -1;
-            TopSpeed = -1;
-            IsElectric = true;
-        }
-
-        public Car(string ownerName, string make, string model, double cost, int mpg, double fuelLevel, int topSpeed, bool isElectric)
-        {
-            OwnerName = ownerName;
-            Make = make;
+            Make = make; // we provide lowercase make and assign it to the PROPERTY uppercase Make
             Model = model;
-            Cost = cost;
             MPG = mpg;
-            FuelLevel = fuelLevel;
+            FuelLevel = fl;
+            Speed = speed;
             TopSpeed = topSpeed;
-            IsElectric = isElectric;
+        }
+
+        // object's functionality - methods
+        // the actions an object can take
+        // accessmodifier optionalmodifier returntype name(inputs){code}
+        public override void Accelerate()
+        {
+            if(Speed <= TopSpeed)
+            {
+                Speed += 5;
+            }
+        }
+
+        public override void Brake()
+        {
+            if(Speed >= 5)
+            {
+                Speed -= 5;
+            }
+        }
+
+        //What do we want to update every timestep?
+        public override void Tick()
+        {
+            if(Speed > 0)
+            {
+                Speed--;
+            }
+            if(FuelLevel > 0)
+            {
+                FuelLevel -= ((Speed / 60f) / (float)MPG); //type casting
+            }
+            if(Speed < 0)
+            {
+                Speed = 0;
+            }
+            if(FuelLevel < 0)
+            {
+                FuelLevel = 0;
+            }
+        }
+
+        public void Refuel()
+        {
+            FuelLevel = 100;
         }
     }
 }

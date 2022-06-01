@@ -1,13 +1,7 @@
 ﻿using Summer2022_Car_Garage_Program;
 
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+Car davisCar = new Car(); // RED FLAG! 'new' means we are creating a new object (often paired with a constuctor)
+Console.WriteLine(davisCar.Model);
 
-// type nam = new type();
-Car car = new Car();
-
-Console.WriteLine(car.MPG); // this should print -1
-
-Car anotherCar = new Car("Davis", "Chrysler", "PT Cruiser", 5, 3, 100, 250, false);
-
-Console.WriteLine(anotherCar.MPG); // this should print 3
+Car xavierCar = new Car("Chevrolet", "Camaro", 22, 100, 0, 184);
+Console.WriteLine(xavierCar.Model);

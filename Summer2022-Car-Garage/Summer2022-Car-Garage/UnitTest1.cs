@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using Summer2022_Car_Garage_Program;
 
-namespace Summer2022_Car_Garage
+namespace Summer2022_Car_Garage_Tests
 {
     public class Tests
     {
