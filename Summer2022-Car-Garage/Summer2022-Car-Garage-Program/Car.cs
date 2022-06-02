@@ -50,6 +50,14 @@ namespace Summer2022_Car_Garage_Program
             }
         }
 
+        public void Accelerate(int increase)
+        {
+            if (Speed <= TopSpeed)
+            {
+                Speed += increase;
+            }
+        }
+
         public override void Brake()
         {
             if(Speed >= 5)

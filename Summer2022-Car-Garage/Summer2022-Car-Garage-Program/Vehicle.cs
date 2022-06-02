@@ -11,6 +11,7 @@ namespace Summer2022_Car_Garage_Program
         public int Speed;
         public int TopSpeed;
 
+        // this outline of a method minus its implementation is called a method's SIGNATURE
         public abstract void Accelerate();
         public abstract void Brake();
         public abstract void Tick();
