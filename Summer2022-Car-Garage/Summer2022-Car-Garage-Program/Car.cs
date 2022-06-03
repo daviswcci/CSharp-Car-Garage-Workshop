@@ -50,6 +50,11 @@ namespace Summer2022_Car_Garage_Program
             }
         }
 
+        /// <summary>
+        /// Increases the speed of our car by a rate the user provides.
+        /// </summary>
+        /// <param name="increase">The amount by which our speed will increase</param>
+
         public void Accelerate(int increase)
         {
             if (Speed <= TopSpeed)
@@ -58,6 +63,9 @@ namespace Summer2022_Car_Garage_Program
             }
         }
 
+        /// <summary>
+        /// Decreases our car's speed by 5.
+        /// </summary>
         public override void Brake()
         {
             if(Speed >= 5)
